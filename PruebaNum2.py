@@ -81,10 +81,15 @@ def simular():
         if MI_MAPA[raton[0]][raton[1]] == "S":
             print(f"¡VICTORIA! El ratón escapó en {turnos} turnos.")
             break
+        
+        # COLISION
+        if raton == gato:
+            print(f"DERROTA! El ratón se entrego al gato en el turno {turnos}.")
+            break
         time.sleep(0.6)
 
         # GATO (MINIMIZA DISTANCIA)
-        # Pasamos es_gato=True para activar la restricción de la salida
+        # es_gato=True para activar la restriccion de la salida
         pasos_g = obtener_movimientos(gato, MI_MAPA, es_gato=True)
         if pasos_g:
             d_min = float('inf')
